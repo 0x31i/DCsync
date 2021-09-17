@@ -3,13 +3,27 @@
 
 ## Performing the DCSync.
 - Using the administrator password obtained from the previous lab, I was able to gain access into the tortuga DC VM and load the Mimikatz trunk onto its desktop.
+
+![img](https://github.com/elisims/DCsync/raw/main/images/1.jpg)
+
 - Next, using the x64 version of mimikatz, I launched powershell from the file menu.
+
+![img](https://github.com/elisims/DCsync/raw/main/images/2.jpg)
+
 - With PowerShell open, I then launched Mimikatz using the command “./mimikatz.exe”. 
 > -  NOTE: I used PowerShell instead of the default cmd launcher because of the limitations the default
 cmd presents- While PowerShell is powerful and flexible
 
+![img](https://github.com/elisims/DCsync/raw/main/images/3.jpg)
+
 - I then used the mimikatz command “privilege::debug” to get “god tier” (debug) privileges, and then used those privileges to elevate my token using the mimikatz command “token::elevate”.
+
+![img](https://github.com/elisims/DCsync/raw/main/images/4.jpg)
+
 - Once I had elevated my privilege enough to access the password hashes through the DCSync, I used the command “lsadump::dcsync /domain:tortuga.local /all /csv”. This command dumps all the users within the tortuga.local domain along with their password hashes.
+
+![img](https://github.com/elisims/DCsync/raw/main/images/5.jpg)
+
 - Here’s the full output received from the previously discussed command:
 
 ```console
@@ -61,6 +75,7 @@ separate files;
 - Though I could use either of these files, the main file I used for cracking the passwords was the hashes only version.
 - I then moved a copy of the “rockyou.txt” wordlist to the desktop and created a new file of the top-5000 words from the rockyou wordlist. This would simplify the use of flags to limit the word usage within the hashcat program itself.
 
+![img](https://github.com/elisims/DCsync/raw/main/images/6.jpg)
 
 ## Cracking the hashes.
 - Once the setup of the files had been completed, I moved on to using hashcat to start cracking the passwords. I started by running the hashesonly.hashcat files against the
@@ -128,6 +143,8 @@ e4b9b463edff8b4ec4c5d0fca14fa974:matrix13131315!
 ```
 
 - After many hours of my computer being throttled (95-98% RAM usage), I was able to find 25 passwords from the hashes obtained from the DCSync. After some collaboration with fellow cybersecurity professionals, we collectively found 27 unique passwords from the original 214 hashes. Here’s the list of the hashes found:
+
+![img](https://github.com/elisims/DCsync/raw/main/images/7.jpg)
 
 ## Password Analysis
 - The last part of auditing passwords is the analysis (or processing) of the passwords obtained. This is necessary in order to illustrate the weaknesses in the password policy and give a visual aid to everyone within the company to realize the severity of these vulnerabilities.
