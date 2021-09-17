@@ -191,6 +191,6 @@ NOTE: Statistics below is relative to the number of analyzed passwords, not tota
 
 - The second tool I used to do this analysis is called “password-analyzer” and was downloaded at “https://github.com/dank-panda/password-analyzer.py”.
 
-
+![img](https://github.com/elisims/DCsync/raw/main/images/8.png)
 
 - Separately, these tools don’t provide the most visually appealing output, however, when graphing this data in a program like Microsoft Excel or Google Sheets- The illustration becomes powerful and visually pleasing.
