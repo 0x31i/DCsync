@@ -144,7 +144,7 @@ e4b9b463edff8b4ec4c5d0fca14fa974:matrix13131315!
 
 - After many hours of my computer being throttled (95-98% RAM usage), I was able to find 25 passwords from the hashes obtained from the DCSync. After some collaboration with fellow cybersecurity professionals, we collectively found 27 unique passwords from the original 214 hashes. Here’s the list of the hashes found:
 
-![img](https://github.com/elisims/DCsync/raw/main/images/7.jpg)
+![img](https://github.com/elisims/DCsync/raw/main/images/7.png)
 
 ## Password Analysis
 - The last part of auditing passwords is the analysis (or processing) of the passwords obtained. This is necessary in order to illustrate the weaknesses in the password policy and give a visual aid to everyone within the company to realize the severity of these vulnerabilities.
